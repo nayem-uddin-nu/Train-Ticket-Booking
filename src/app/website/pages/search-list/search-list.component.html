@@ -1,0 +1,464 @@
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+    <!-- =======================
+    Search START -->
+    <section class="pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Booking from START -->
+                    <app-search></app-search>
+                    <!-- Booking from END -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Search START -->
+
+    <!-- =======================
+    Title and notice board START -->
+    <section class="pt-0">
+        <div class="container position-relative">
+
+            <!-- Title and button START -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-sm-flex justify-content-sm-between align-items-center">
+                        <!-- Title -->
+                        <div class="mb-3 mb-sm-0">
+                            <h1 class="fs-3">09 Flight Available</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Title and button END -->
+
+            <!-- Notice board START -->
+            <div class="bg-primary bg-opacity-10 rounded-3 overflow-hidden mt-4 p-4">
+                <div class="row g-4 align-items-center">
+                    <!-- Image -->
+                    <div class="col-6 col-md-3 text-center order-1">
+                        <img src="assets/images/element/11.svg" class="mb-n5" alt="">
+                    </div>
+
+                    <!-- Content -->
+                    <div class="col-md-6 order-md-2">
+                        <!-- Title -->
+                        <h4>International Guideline</h4>
+                        <!-- Content -->
+                        <p class="mb-2">COVID safety measures adopted by various countries including VISA restrictions,
+                            quarantine rules, etc.</p>
+                        <!-- Button -->
+                        <a href="#" class="btn btn-sm btn-primary mb-0">View Guidelines</a>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-6 col-md-3 text-center order-3">
+                        <img src="assets/images/element/10.svg" class="mb-n5" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Notice board END -->
+
+        </div>
+    </section>
+    <!-- =======================
+    Title and notice board END -->
+
+    <!-- =======================
+    Flight list START -->
+    <section class="pt-0">
+        <div class="container">
+            <div class="row">
+
+                <!-- Left sidebar START -->
+
+                <!-- Left sidebar END -->
+
+                <!-- Main content START -->
+                <div class="col-xl-8 col-xxl-9 mx-auto">
+                    <div class="vstack gap-4">
+                        <!-- Ticket item START -->
+                        <div class="card border">
+                            <!-- Card header -->
+                            <div class="card-header d-sm-flex justify-content-sm-between align-items-center">
+                                <!-- Airline Name -->
+                                <div class="d-flex align-items-center mb-2 mb-sm-0">
+                                    <img src="assets/images/element/12.svg" class="w-30px me-2" alt="">
+                                    <h6 class="fw-normal mb-0">Wizixo Airline (SA - 1254)</h6>
+                                </div>
+                                <h6 class="fw-normal mb-0"><span class="text-body">Travel Class:</span> Economy</h6>
+                            </div>
+
+                            <!-- Card body -->
+                            <div class="card-body p-4 pb-0">
+                                <!-- Ticket item START -->
+                                <div class="row g-4">
+                                    <!-- Airport detail -->
+                                    <div class="col-sm-4 col-md-3">
+                                        <h4>14:50</h4>
+                                        <p class="mb-0">BOM - Terminal 2 Mumbai, India</p>
+                                    </div>
+
+                                    <!-- Time -->
+                                    <div class="col-sm-4 col-md-3 my-sm-auto text-center">
+                                        <!-- Time -->
+                                        <h5>9hr 50min</h5>
+                                        <div class="position-relative my-4">
+                                            <!-- Line -->
+                                            <hr class="bg-primary opacity-5 position-relative">
+                                            <!-- Icon -->
+                                            <div
+                                                class="icon-md bg-primary text-white rounded-circle position-absolute top-50 start-50 translate-middle">
+                                                <i class="fa-solid fa-fw fa-plane rtl-flip"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Airport detail -->
+                                    <div class="col-sm-4 col-md-3">
+                                        <h4>07:35</h4>
+                                        <p class="mb-0">JFK - Terminal 2 New York, USA</p>
+                                    </div>
+
+                                    <!-- Price -->
+                                    <div class="col-md-3 text-md-end">
+                                        <h4>$18,500</h4>
+                                        <a href="flight-detail.html" class="btn btn-dark mb-0 mb-sm-2">Book Now</a>
+                                    </div>
+                                </div>
+                                <!-- Ticket item END -->
+                            </div>
+
+                            <!-- Card footer -->
+                            <div class="card-footer pt-4">
+                                <ul
+                                    class="list-inline bg-light rounded-2 d-sm-flex text-center justify-content-sm-between mb-0 px-4 py-2">
+                                    <li class="list-inline-item text-danger">Only 25 Seat Left</li>
+                                    <li class="list-inline-item text-danger">Non-Refundable</li>
+                                    <li class="list-inline-item">
+                                        <!-- Collapse button -->
+                                        <a class="btn-more d-flex align-items-center collapsed p-0 mb-0"
+                                            data-bs-toggle="collapse" href="#flightDetail" role="button"
+                                            aria-expanded="false" aria-controls="flightDetail">
+                                            Flight detail<i class="fa-solid fa-angle-down ms-2"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- Collapse body START -->
+                                <div class="multi-collapse collapse" id="flightDetail">
+                                    <!-- Tabs START -->
+                                    <ul class="nav nav-pills nav-justified nav-responsive bg-primary bg-opacity-10 rounded mt-4 mb-3 p-2"
+                                        id="flightlist-tab" role="tablist">
+                                        <!-- Tab item -->
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active mb-0" id="flightlist-tab-1"
+                                                data-bs-toggle="pill" data-bs-target="#flightlist-tab1" type="button"
+                                                role="tab" aria-controls="flightlist-tab1" aria-selected="true">Flight
+                                                Information</button>
+                                        </li>
+                                        <!-- Tab item -->
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link mb-0" id="flightlist-tab-2" data-bs-toggle="pill"
+                                                data-bs-target="#flightlist-tab2" type="button" role="tab"
+                                                aria-controls="flightlist-tab2" aria-selected="false">Fare
+                                                Detail</button>
+                                        </li>
+                                        <!-- Tab item -->
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link mb-0" id="flightlist-tab-3" data-bs-toggle="pill"
+                                                data-bs-target="#flightlist-tab3" type="button" role="tab"
+                                                aria-controls="flightlist-tab3" aria-selected="false">Baggage
+                                                Rules</button>
+                                        </li>
+                                        <!-- Tab item -->
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link mb-0" id="flightlist-tab-4" data-bs-toggle="pill"
+                                                data-bs-target="#flightlist-tab4" type="button" role="tab"
+                                                aria-controls="flightlist-tab4" aria-selected="false">Cancellation
+                                                Rules</button>
+                                        </li>
+                                    </ul>
+                                    <!-- Tabs END -->
+
+                                    <!-- Tab content START -->
+                                    <div class="tab-content mb-0" id="flightlist-tabContent">
+
+                                        <!-- Content item START -->
+                                        <div class="tab-pane fade show active" id="flightlist-tab1" role="tabpanel"
+                                            aria-labelledby="flightlist-tab-1">
+                                            <div class="card border">
+
+                                                <!-- Card header -->
+                                                <div class="card-header d-flex align-items-center pb-0">
+                                                    <img src="assets/images/element/12.svg" class="w-30px me-2" alt="">
+                                                    <h6 class="fw-normal mb-0">Wizixo Airline (SA - 1254)</h6>
+                                                </div>
+
+                                                <!-- Card body START -->
+                                                <div class="card-body p-4">
+                                                    <!-- Ticket item START -->
+                                                    <div class="row g-4">
+                                                        <!-- Airport detail -->
+                                                        <div class="col-sm-4">
+                                                            <!-- Title -->
+                                                            <h4>BOM</h4>
+                                                            <h6 class="mb-0">14:50</h6>
+                                                            <p class="mb-0">Chhatrapati Shivaji International Airport
+                                                            </p>
+                                                        </div>
+
+                                                        <!-- Time -->
+                                                        <div class="col-sm-4 my-sm-auto text-center">
+                                                            <!-- Time -->
+                                                            <h5>9hr 50min</h5>
+
+                                                            <div class="position-relative my-4">
+                                                                <!-- Line -->
+                                                                <hr class="bg-primary opacity-5 position-relative">
+                                                                <!-- Icon -->
+                                                                <div
+                                                                    class="icon-md bg-primary text-white rounded-circle position-absolute top-50 start-50 translate-middle">
+                                                                    <i class="fa-solid fa-fw fa-plane rtl-flip"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Airport detail -->
+                                                        <div class="col-sm-4">
+                                                            <!-- Title -->
+                                                            <h4>CDG</h4>
+                                                            <h6 class="mb-0">11:50</h6>
+                                                            <p class="mb-0">Ch. De Gaulle, Paris, France</p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Ticket item END -->
+
+                                                    <!-- Divider -->
+                                                    <div class="bg-light text-center fw-normal rounded-2 mt-3 mb-4 p-2">
+                                                        Change of planes: 3h 15m Layover in France
+                                                    </div>
+
+                                                    <!-- Ticket item START -->
+                                                    <div class="row g-4">
+                                                        <!-- Airport detail -->
+                                                        <div class="col-sm-4">
+                                                            <!-- Title -->
+                                                            <h4>CDG</h4>
+                                                            <h6 class="mb-0">2:50</h6>
+                                                            <p class="mb-0">Ch. De Gaulle, Paris, France</p>
+                                                        </div>
+
+                                                        <!-- Time -->
+                                                        <div class="col-sm-4 my-sm-auto text-center">
+                                                            <!-- Time -->
+                                                            <h5>5hr 50min</h5>
+
+                                                            <div class="position-relative my-4">
+                                                                <!-- Line -->
+                                                                <hr class="bg-primary opacity-5 position-relative">
+                                                                <!-- Icon -->
+                                                                <div
+                                                                    class="icon-md bg-primary text-white rounded-circle position-absolute top-50 start-50 translate-middle">
+                                                                    <i class="fa-solid fa-fw fa-plane rtl-flip"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Airport detail -->
+                                                        <div class="col-sm-4">
+                                                            <!-- Title -->
+                                                            <h4>JFK</h4>
+                                                            <h6 class="mb-0">7:35</h6>
+                                                            <p class="mb-0">John F Kennedy Intl-NY</p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Ticket item END -->
+                                                </div>
+                                                <!-- Card body END -->
+                                            </div>
+                                        </div>
+                                        <!-- Content item END -->
+
+                                        <!-- Content item START -->
+                                        <div class="tab-pane fade" id="flightlist-tab2" role="tabpanel"
+                                            aria-labelledby="flightlist-tab-2">
+                                            <div class="card card-body">
+                                                <!-- Table START -->
+                                                <div class="table-responsive-lg">
+                                                    <table class="table caption-bottom mb-0">
+                                                        <!-- Caption -->
+                                                        <caption class="pb-0">*From The Date Of Departure</caption>
+                                                        <!-- Table head -->
+                                                        <thead class="table-dark">
+                                                            <tr>
+                                                                <th scope="col" class="border-0 rounded-start">Base Fare
+                                                                </th>
+                                                                <th scope="col" class="border-0">Taxes and Fees</th>
+                                                                <th scope="col" class="border-0 rounded-end">Total Fees
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <!-- Table body -->
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>$36,500</td>
+                                                                <td>$1,050</td>
+                                                                <td>
+                                                                    <h5 class="mb-0">$37,550</h5>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- Table END -->
+                                            </div>
+                                        </div>
+                                        <!-- Content item END -->
+
+                                        <!-- Content item START -->
+                                        <div class="tab-pane fade" id="flightlist-tab3" role="tabpanel"
+                                            aria-labelledby="flightlist-tab-3">
+                                            <div class="card border">
+                                                <!-- Card header -->
+                                                <div class="card-header d-flex align-items-center border-bottom">
+                                                    <!-- Title -->
+                                                    <img src="assets/images/element/12.svg" class="w-30px me-2" alt="">
+                                                    <h5 class="card-title mb-0">BOM - CDG</h5>
+                                                </div>
+
+                                                <!-- Card body -->
+                                                <div class="card-body">
+                                                    <!-- Table START -->
+                                                    <div class="table-responsive-lg">
+                                                        <table class="table caption-bottom mb-0">
+                                                            <!-- Caption -->
+                                                            <caption class="pb-0">*1PC = 23KG</caption>
+                                                            <!-- Table head -->
+                                                            <thead class="table-dark">
+                                                                <tr>
+                                                                    <th scope="col" class="border-0 rounded-start">
+                                                                        Baggage Type</th>
+                                                                    <th scope="col" class="border-0">Check In</th>
+                                                                    <th scope="col" class="border-0 rounded-end">Cabin
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <!-- Table body -->
+                                                            <tbody class="border-top-0">
+                                                                <tr>
+                                                                    <td>Adult</td>
+                                                                    <td>2 PC</td>
+                                                                    <td>7 Kg</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- Table END -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Content item END -->
+
+                                        <!-- Content item START -->
+                                        <div class="tab-pane fade" id="flightlist-tab4" role="tabpanel"
+                                            aria-labelledby="flightlist-tab-4">
+                                            <div class="card border">
+                                                <!-- Card header -->
+                                                <div class="card-header d-flex align-items-center border-bottom">
+                                                    <!-- Title -->
+                                                    <img src="assets/images/element/12.svg" class="w-30px me-2" alt="">
+                                                    <h5 class="card-title mb-0">BOM - CDG</h5>
+                                                </div>
+
+                                                <!-- Card body -->
+                                                <div class="card-body">
+                                                    <!-- Table START -->
+                                                    <div class="table-responsive-lg">
+                                                        <table class="table caption-bottom mb-0">
+                                                            <!-- Caption -->
+                                                            <caption class="pb-0">*From The Date Of Departure</caption>
+                                                            <!-- Table head -->
+                                                            <thead class="table-dark">
+                                                                <tr>
+                                                                    <th scope="col" class="border-0 rounded-start">Time
+                                                                        Frame</th>
+                                                                    <th scope="col" class="border-0 rounded-end">Air
+                                                                        Free + MMT Free</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <!-- Table body -->
+                                                            <tbody class="border-top-0">
+                                                                <tr>
+                                                                    <td>0 hours to 24 hours</td>
+                                                                    <td>Non Refundable</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>24 hours to 365 days</td>
+                                                                    <td>$16,325 + $250</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- Table END -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Content item END -->
+
+                                    </div>
+                                    <!-- Tab content END -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Ticket item END -->
+
+
+
+                        <!-- Pagination START -->
+                        <nav class="d-flex justify-content-center" aria-label="navigation">
+                            <ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+                                <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i
+                                            class="fa-solid fa-angle-left"></i></a></li>
+                                <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item mb-0"><a class="page-link" href="#">..</a></li>
+                                <li class="page-item mb-0"><a class="page-link" href="#">6</a></li>
+                                <li class="page-item mb-0"><a class="page-link" href="#"><i
+                                            class="fa-solid fa-angle-right"></i></a></li>
+                            </ul>
+                        </nav>
+                        <!-- Pagination END -->
+
+                    </div>
+                </div>
+                <!-- Main content END -->
+            </div> <!-- Row END -->
+        </div>
+    </section>
+    <!-- =======================
+    Flight list END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+
+<!-- Action box START -->
+<div class="bg-success bg-opacity-10 p-3 rounded-2 d-sm-flex justify-content-sm-between align-items-center">
+    <!-- Title and badge -->
+    <div class="d-flex align-items-center mb-3 mb-sm-0">
+        <div class="position-relative z-index-1 me-2">
+            <img src="assets/images/element/05.svg" class="position-relative h-40px" alt="">
+            <span class="smaller text-white position-absolute top-50 start-50 translate-middle">New</span>
+        </div>
+        <!-- Title -->
+        <h6 class="mb-0 fw-normal">Get <strong class='text-success'>12% Off</strong> On Your
+            First Flight</h6>
+    </div>
+
+    <!-- Button -->
+    <a href="#" class="btn btn-sm btn-success mb-0">Login / Signup</a>
+</div>
+<!-- Action box END -->
