@@ -1,0 +1,6 @@
+{
+  "routes": [
+    "/find-ticket",
+    "/home"
+  ]
+}
