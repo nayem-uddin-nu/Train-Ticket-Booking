@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Booking from START -->
-                    <app-search (sharedFormData)="emitSharedData($event)"></app-search>
+                    <app-search (sharedFormData)="emitSharedData($event)" [errors]="validationErrors"></app-search>
                     <!-- Booking from END -->
                 </div>
             </div>
