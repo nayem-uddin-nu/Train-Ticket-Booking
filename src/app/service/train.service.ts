@@ -16,12 +16,9 @@ export class TrainService {
       return this.http.get(`${this.config.apiURL}/get-stations`);
    }
 
-   getAvailabletrains(data: any) {
-      console.log(data);
+   getTickets(data: any) {
       return this.http.post(`${this.config.apiURL}/search`, data);
    }
-
-
 
 }
 

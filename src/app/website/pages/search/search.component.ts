@@ -1,20 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { IDestination } from '../../../model/destination';
 import { DistrictService } from '../../../service/district.service';
 import { TrainService } from '../../../service/train.service';
 import { FormService } from '../../../service/form-service';
+import { SearchService } from '../../../service/search.service';
 
 @Component({
   selector: 'app-search',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+  styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+
+  @Output() sharedFormData = new EventEmitter<any>();
 
   router = inject(Router);
   trainService = inject(TrainService);
@@ -22,39 +25,31 @@ export class SearchComponent implements OnInit {
   formService = inject(FormService);
   findTicketForm = this.formService.findTicketForm;
 
-  // findTicketForm: FormGroup = new FormGroup({
-  //   ticketClass: new FormControl(null, [Validators.required]),
-  //   travellers: new FormControl(null, [Validators.required, Validators.max(5), Validators.min(1)]),
-  //   departure: new FormControl(null, [Validators.required]),
-  //   destination: new FormControl(null, [Validators.required]),
-  //   departureDate: new FormControl("", [Validators.required]),
-  //   returnDate: new FormControl(""),
-  // });
-
   destinationList: IDestination[] = [];
 
   formValue: any;
-  isInvalid: boolean = false;
-  isSameToLocation: boolean = false;
   isFormInvalid: boolean = false;
+  currentUrl: any;
+
+  searchService = inject(SearchService);
 
   ngOnInit(): void {
+
     this.loadDestinations();
   }
 
   loadDestinations() {
     this.destinationService.getAll().subscribe((res: any) => {
       this.destinationList = res.data;
-    })
+    });
   }
 
-
   findTicket() {
-    this.formValue = this.findTicketForm.value;
+    this.currentUrl = this.router.url;
     if (this.findTicketForm.valid) {
-      this.router.navigateByUrl('/find-ticket');
-    }
-    else {
+      this.sharedFormData.emit(this.findTicketForm.value);
+      this.router.navigate(['/find-ticket']);
+    } else {
       this.isFormInvalid = true;
     }
   }
@@ -66,7 +61,5 @@ export class SearchComponent implements OnInit {
   oneway() {
     this.formService.isRoundedTrip = false;
     this.findTicketForm.reset();
-
   }
-
 }

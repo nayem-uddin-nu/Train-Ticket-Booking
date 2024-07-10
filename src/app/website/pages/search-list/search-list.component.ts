@@ -1,27 +1,48 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { SearchComponent } from '../search/search.component';
-import { FormService } from '../../../service/form-service';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { FormService } from '../../../service/form-service';
+import { SearchComponent } from '../search/search.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SearchService } from '../../../service/search.service';
+import { TrainService } from '../../../service/train.service';
 
 @Component({
-  selector: 'app-search-list',
-  standalone: true,
-  imports: [SearchComponent],
-  templateUrl: './search-list.component.html',
-  styleUrl: './search-list.component.css'
+    selector: 'app-search-list',
+    standalone: true,
+    imports: [SearchComponent],
+    templateUrl: './search-list.component.html',
+    styleUrls: ['./search-list.component.css']
 })
 export class SearchListComponent implements OnInit {
-  formService = inject(FormService);
-  formSubscription!: Subscription;
-  formValue: any;
+    formValue: any;
+    router = inject(Router);
+    trainService = inject(TrainService)
+    activatedRoute = inject(ActivatedRoute);
+    formSubscription!: Subscription;
 
-  ngOnInit(): void {
-    // console.log(this.formService.findTicketForm.value);
-    this.formSubscription = this.formService.formChanges$.subscribe(value => {
-      this.formValue = value;
-      console.log(value);
+    formService = inject(FormService);
+    findTicketForm = this.formService.findTicketForm;
 
-      // this.getTickets(this.formValue);
-    });
-  }
+
+    searchService = inject(SearchService);
+    ngOnInit(): void {
+        this.formValue = this.findTicketForm.value;
+        console.log('Find Ticket Constructor...');
+        console.log(this.formValue);
+        this.trainService.getTickets(this.formValue);
+    }
+
+    // ngOnDestroy(): void {
+    //   this.formSubscription.unsubscribe();
+    // }
+
+
+    emitSharedData(data: any) {
+        console.log('emmiting from search list...');
+        console.log(data);
+        this.trainService.getTickets(data);
+
+    }
+
+
 }

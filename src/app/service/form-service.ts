@@ -1,24 +1,3 @@
-// import { HttpClient } from '@angular/common/http';
-// import { Injectable } from '@angular/core';
-// import { FormControl, FormGroup, Validators } from '@angular/forms';
-
-// @Injectable({
-//     providedIn: 'root'
-// })
-// export class FormService {
-//     isRoundedTrip: boolean = false;
-//     findTicketForm: FormGroup = new FormGroup({
-//         ticketClass: new FormControl("Select Class", [Validators.required]),
-//         travellers: new FormControl("Select Travellers", [Validators.required, Validators.max(5), Validators.min(1)]),
-//         departure: new FormControl(null, [Validators.required]),
-//         destination: new FormControl(null, [Validators.required]),
-//         departureDate: new FormControl("", [Validators.required]),
-//         returnDate: new FormControl('', [this.isRoundedTrip === true ? Validators.required : Validators.nullValidator],),
-//     });
-// }
-
-
-
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';

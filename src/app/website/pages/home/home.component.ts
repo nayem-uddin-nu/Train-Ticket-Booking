@@ -21,5 +21,4 @@ declare var Choices: any;
 })
 
 export class HomeComponent {
-
 }
