@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, inject, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { IDestination } from '../../../model/destination';
@@ -18,6 +18,7 @@ import { SearchService } from '../../../service/search.service';
 export class SearchComponent implements OnInit {
 
   @Output() sharedFormData = new EventEmitter<any>();
+  @Input() errors: any = {}
 
   router = inject(Router);
   trainService = inject(TrainService);
