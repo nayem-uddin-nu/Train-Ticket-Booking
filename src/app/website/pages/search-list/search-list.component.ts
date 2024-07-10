@@ -17,19 +17,20 @@ export class SearchListComponent implements OnInit {
     formValue: any;
     router = inject(Router);
     trainService = inject(TrainService)
-    activatedRoute = inject(ActivatedRoute);
-    formSubscription!: Subscription;
 
     formService = inject(FormService);
     findTicketForm = this.formService.findTicketForm;
 
 
     searchService = inject(SearchService);
+
+    validationErrors: any = {};
     ngOnInit(): void {
-        this.formValue = this.findTicketForm.value;
-        console.log('Find Ticket Constructor...');
-        console.log(this.formValue);
-        this.trainService.getTickets(this.formValue);
+        if (this.findTicketForm.valid) {
+            this.formValue = this.findTicketForm.value;
+            this.getAvailableTickets();
+
+        }
     }
 
     // ngOnDestroy(): void {
@@ -38,10 +39,24 @@ export class SearchListComponent implements OnInit {
 
 
     emitSharedData(data: any) {
+        this.formValue = data;
         console.log('emmiting from search list...');
-        console.log(data);
-        this.trainService.getTickets(data);
+        console.log(this.formValue);
+        this.getAvailableTickets();
 
+    }
+
+
+    getAvailableTickets() {
+        this.trainService.getTickets(this.formValue).subscribe({
+            next: (res) => {
+                console.log(res);
+            },
+            error: (errors) => {
+                console.log(errors);
+                this.validationErrors = errors;
+            }
+        });
     }
 
 
