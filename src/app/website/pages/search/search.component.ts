@@ -14,6 +14,8 @@ import { SearchService } from '../../../service/search.service';
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
+
+
 })
 export class SearchComponent implements OnInit {
 
