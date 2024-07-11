@@ -31,8 +31,8 @@ export class SearchComponent implements OnInit {
   destinationList: IDestination[] = [];
 
   formValue: any;
-  isFormInvalid: boolean = false;
   currentUrl: any;
+  isFormInvalid: boolean = false;
 
   searchService = inject(SearchService);
 
