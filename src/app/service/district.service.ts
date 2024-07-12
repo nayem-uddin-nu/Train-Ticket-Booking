@@ -11,6 +11,6 @@ export class DistrictService {
 
 
   getAll() {
-    return this.http.get(`${this.apiURL}/get-stations`);
+    return this.http.get(`${this.apiURL}/stations`);
   }
 }
