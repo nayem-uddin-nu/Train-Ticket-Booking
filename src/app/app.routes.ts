@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './website/pages/home/home.component';
 import { SearchComponent } from './website/pages/search/search.component';
 import { SearchListComponent } from './website/pages/search-list/search-list.component';
+import { TicketDetailsComponent } from './components/ticket-details/ticket-details.component';
 
 export const routes: Routes = [
     {
@@ -20,5 +21,9 @@ export const routes: Routes = [
     {
         path: 'find-ticket',
         component: SearchListComponent
+    },
+    {
+        path: 'details/:scheduleId',
+        component: TicketDetailsComponent
     }
 ];
