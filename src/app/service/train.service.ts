@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { ConfigService } from './config-service';
-import { catchError, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
    providedIn: 'root'
@@ -12,21 +12,18 @@ export class TrainService {
 
    constructor(private http: HttpClient) { }
 
-   getAllStations() {
-      return this.http.get(`${this.config.apiURL}/get-stations`);
+   getAllStations(): Observable<any> {
+      return this.http.get(`${this.config.apiURL}/stations`);
    }
 
-   getTickets(data: any) {
-      return this.http.post(`${this.config.apiURL}/search`, data).pipe(
+   getTickets(data: any): Observable<any> {
+      return this.http.post(`${this.config.apiURL}/find-schedules`, data).pipe(
          catchError(this.handleError)
       );
-
    }
 
 
    private handleError(resp: HttpErrorResponse) {
-      console.log(resp.error);
-
       let errorMessages = {};
 
       if (resp.status === 422 && resp.error) {

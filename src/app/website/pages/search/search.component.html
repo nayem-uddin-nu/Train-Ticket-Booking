@@ -98,23 +98,23 @@
                         <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
                             <!-- Input field -->
                             <label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
-                            <select class="form-select" name="departure" formControlName="departure"
-                                data-search-enabled="true" [ngClass]="{'is-invalid': findTicketForm.controls['departure'].touched &&
-                                findTicketForm.controls['departure'].errors?.['required']}">
+                            <select class="form-select" name="departure_station_id"
+                                formControlName="departure_station_id" data-search-enabled="true" [ngClass]="{'is-invalid': findTicketForm.controls['departure_station_id'].touched &&
+                                findTicketForm.controls['departure_station_id'].errors?.['required']}">
                                 <option [ngValue]="0" disabled>Select location</option>
                                 @for (item of destinationList; track $index) {
                                 <option [value]="item.id">{{item.name}}</option>
                                 }
                             </select>
                             <div class="text-danger">
-                                @if (findTicketForm.controls['departure'].touched &&
-                                findTicketForm.controls['departure'].errors?.['required']) {
+                                @if (findTicketForm.controls['departure_station_id'].touched &&
+                                findTicketForm.controls['departure_station_id'].errors?.['required']) {
                                 <span>Select Location</span>
                                 }
 
                             </div>
-                            <div *ngIf="errors.departure" class="text-danger">
-                                <span *ngFor="let error of errors.departure">{{ error }}</span>
+                            <div *ngIf="errors.departure_station_id" class="text-danger">
+                                <span *ngFor="let error of errors.departure_station_id">{{ error }}</span>
                             </div>
                         </div>
 
@@ -130,25 +130,25 @@
                         <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
                             <!-- Input field -->
                             <label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
-                            <select class="form-select" data-search-enabled="true" formControlName="destination"
-                                name="destination" [ngClass]="{'is-invalid': findTicketForm.controls['destination'].touched &&
-                                findTicketForm.controls['destination'].errors?.['required']}">
+                            <select class="form-select" data-search-enabled="true" formControlName="arrival_station_id"
+                                name="arrival_station_id" [ngClass]="{'is-invalid': findTicketForm.controls['arrival_station_id'].touched &&
+                                findTicketForm.controls['arrival_station_id'].errors?.['required']}">
                                 <option [value]="0" disabled>Select Destination</option>
                                 @for (item of destinationList; track $index) {
                                 <option [value]="item.id">{{item.name}}</option>
                                 }
                             </select>
                             <div class="text-danger">
-                                @if (findTicketForm.controls['destination'].touched &&
-                                findTicketForm.controls['destination'].errors?.['required']) {
+                                @if (findTicketForm.controls['arrival_station_id'].touched &&
+                                findTicketForm.controls['arrival_station_id'].errors?.['required']) {
                                 <span>Select Destination</span>
                                 }
                                 <!-- @if(isSameToLocation){
                                 <span>Try different destination</span>
                                 } -->
                             </div>
-                            <div *ngIf="errors.destination" class="text-danger">
-                                <span *ngFor="let error of errors.destination">{{ error }}</span>
+                            <div *ngIf="errors.arrival_station_id" class="text-danger">
+                                <span *ngFor="let error of errors.arrival_station_id">{{ error }}</span>
                             </div>
                         </div>
                     </div>
@@ -188,22 +188,22 @@
                         <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
                             <!-- Input field -->
                             <label class="mb-1"><i class="bi bi-geo-alt me-2"></i>From</label>
-                            <select class="form-select" data-search-enabled="true" formControlName="departure"
-                                name="departure">
+                            <select class="form-select" data-search-enabled="true"
+                                formControlName="departure_station_id" name="departure_station_id">
                                 <option [value]="0" disabled>Select location</option>
                                 @for (item of destinationList; track $index) {
-                                <option [value]="item.id">{{item.name}}</option>
+                                <option [value]="item.id">{{item.name}} [{{item.id}}]</option>
                                 }
                             </select>
                             <div class="text-danger">
-                                @if (findTicketForm.controls['departure'].touched &&
-                                findTicketForm.controls['departure'].errors?.['required']) {
+                                @if (findTicketForm.controls['departure_station_id'].touched &&
+                                findTicketForm.controls['departure_station_id'].errors?.['required']) {
                                 <span>Select Location</span>
                                 }
 
                             </div>
-                            <div *ngIf="errors.departure" class="text-danger">
-                                <span *ngFor="let error of errors.departure">{{ error }}</span>
+                            <div *ngIf="errors.departure_station_id" class="text-danger">
+                                <span *ngFor="let error of errors.departure_station_id">{{ error }}</span>
                             </div>
                         </div>
 
@@ -219,22 +219,22 @@
                         <div class="form-border-transparent form-fs-lg bg-light rounded-3 h-100 p-3">
                             <!-- Input field -->
                             <label class="mb-1"><i class="bi bi-send me-2"></i>To</label>
-                            <select class="form-select" data-search-enabled="true" formControlName="destination"
-                                name="destination">
+                            <select class="form-select" data-search-enabled="true" formControlName="arrival_station_id"
+                                name="arrival_station_id">
                                 <option [value]="0" disabled>Select location</option>
                                 @for (item of destinationList; track $index) {
-                                <option [value]="item.id">{{item.name}}</option>
+                                <option [value]="item.id">{{item.name}} [{{item.id}}]</option>
                                 }
                             </select>
                             <div class="text-danger">
-                                @if (findTicketForm.controls['destination'].touched &&
-                                findTicketForm.controls['destination'].errors?.['required']) {
+                                @if (findTicketForm.controls['arrival_station_id'].touched &&
+                                findTicketForm.controls['arrival_station_id'].errors?.['required']) {
                                 <span>Select Location</span>
                                 }
 
                             </div>
-                            <div *ngIf="errors.destination" class="text-danger">
-                                <span *ngFor="let error of errors.destination">{{ error }}</span>
+                            <div *ngIf="errors.arrival_station_id" class="text-danger">
+                                <span *ngFor="let error of errors.arrival_station_id">{{ error }}</span>
                             </div>
                         </div>
                     </div>

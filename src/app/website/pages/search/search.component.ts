@@ -37,7 +37,6 @@ export class SearchComponent implements OnInit {
   searchService = inject(SearchService);
 
   ngOnInit(): void {
-
     this.loadDestinations();
   }
 
@@ -50,6 +49,7 @@ export class SearchComponent implements OnInit {
   findTicket() {
     this.currentUrl = this.router.url;
     if (this.findTicketForm.valid) {
+      this.errors = {};
       this.sharedFormData.emit(this.findTicketForm.value);
       this.router.navigate(['/find-ticket']);
     } else {
@@ -59,10 +59,12 @@ export class SearchComponent implements OnInit {
 
   roundTrip() {
     this.formService.isRoundedTrip = true;
+    this.errors = {};
   }
 
   oneway() {
     this.formService.isRoundedTrip = false;
     this.findTicketForm.reset();
+    this.errors = {};
   }
 }

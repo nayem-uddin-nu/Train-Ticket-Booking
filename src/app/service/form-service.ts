@@ -8,10 +8,10 @@ import { Subject } from 'rxjs';
 export class FormService {
     isRoundedTrip: boolean = false;
     findTicketForm: FormGroup = new FormGroup({
-        ticketClass: new FormControl("Select Class", [Validators.required]),
-        travellers: new FormControl("Select Travellers", [Validators.required, Validators.max(5), Validators.min(1)]),
-        departure: new FormControl(null, [Validators.required]),
-        destination: new FormControl(null, [Validators.required]),
+        ticketClass: new FormControl(null),
+        travellers: new FormControl(null, [Validators.nullValidator, Validators.max(5), Validators.min(1)]),
+        departure_station_id: new FormControl(null, [Validators.required]),
+        arrival_station_id: new FormControl(null, [Validators.required]),
         departureDate: new FormControl("", [Validators.required]),
         returnDate: new FormControl('', [this.isRoundedTrip ? Validators.required : Validators.nullValidator]),
     });

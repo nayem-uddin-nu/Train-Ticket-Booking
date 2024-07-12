@@ -1,4 +1,5 @@
 <!-- **************** MAIN CONTENT START **************** -->
+
 <main>
     <!-- =======================
     Search START -->
@@ -27,7 +28,8 @@
                     <div class="d-sm-flex justify-content-sm-between align-items-center">
                         <!-- Title -->
                         <div class="mb-3 mb-sm-0">
-                            <h1 class="fs-3">09 Flight Available</h1>
+                            <h1 class="fs-3">{{schedules.length < 10 ? '0' + schedules.length : schedules.length }}
+                                    Train Available</h1>
                         </div>
                     </div>
                 </div>
@@ -80,15 +82,16 @@
                 <div class="col-xl-8 col-xxl-9 mx-auto">
                     <div class="vstack gap-4">
                         <!-- Ticket item START -->
-                        <div class="card border">
+                        <div class="card border" *ngFor="let schedule of schedules">
                             <!-- Card header -->
                             <div class="card-header d-sm-flex justify-content-sm-between align-items-center">
                                 <!-- Airline Name -->
                                 <div class="d-flex align-items-center mb-2 mb-sm-0">
                                     <img src="assets/images/element/12.svg" class="w-30px me-2" alt="">
-                                    <h6 class="fw-normal mb-0">Wizixo Airline (SA - 1254)</h6>
+                                    <h6 class="fw-normal mb-0">{{schedule.train.name}} ( {{schedule.train.code}} )</h6>
                                 </div>
-                                <h6 class="fw-normal mb-0"><span class="text-body">Travel Class:</span> Economy</h6>
+                                <h6 class="fw-normal mb-0"><span class="text-body">Travel Class:</span>
+                                    {{schedule.class}}</h6>
                             </div>
 
                             <!-- Card body -->
@@ -97,8 +100,10 @@
                                 <div class="row g-4">
                                     <!-- Airport detail -->
                                     <div class="col-sm-4 col-md-3">
-                                        <h4>14:50</h4>
-                                        <p class="mb-0">BOM - Terminal 2 Mumbai, India</p>
+                                        <h4>{{getFormattedTime(schedule.departure_time)}}</h4>
+                                        <p class="mb-0">{{ schedule.departure_station.name }} - {{
+                                            schedule.departure_station.location }}
+                                        </p>
                                     </div>
 
                                     <!-- Time -->
@@ -118,14 +123,16 @@
 
                                     <!-- Airport detail -->
                                     <div class="col-sm-4 col-md-3">
-                                        <h4>07:35</h4>
-                                        <p class="mb-0">JFK - Terminal 2 New York, USA</p>
+                                        <h4>{{ getFormattedTime(schedule.arrival_time)}}</h4>
+                                        <p class="mb-0">{{ schedule.arrival_station.name }} -
+                                            {{schedule.arrival_station.location}}</p>
                                     </div>
 
                                     <!-- Price -->
                                     <div class="col-md-3 text-md-end">
-                                        <h4>$18,500</h4>
-                                        <a href="flight-detail.html" class="btn btn-dark mb-0 mb-sm-2">Book Now</a>
+                                        <h4>BDT {{schedule.ticket_price}}</h4>
+                                        <a routerLink="/details, schedule.id" class="btn btn-dark mb-0 mb-sm-2">Book
+                                            Now</a>
                                     </div>
                                 </div>
                                 <!-- Ticket item END -->
@@ -140,7 +147,7 @@
                                     <li class="list-inline-item">
                                         <!-- Collapse button -->
                                         <a class="btn-more d-flex align-items-center collapsed p-0 mb-0"
-                                            data-bs-toggle="collapse" href="#flightDetail" role="button"
+                                            data-bs-toggle="collapse" href="#flightDetail{{schedule.id}}" role="button"
                                             aria-expanded="false" aria-controls="flightDetail">
                                             Flight detail<i class="fa-solid fa-angle-down ms-2"></i>
                                         </a>
@@ -148,36 +155,56 @@
                                 </ul>
 
                                 <!-- Collapse body START -->
-                                <div class="multi-collapse collapse" id="flightDetail">
+                                <div class="multi-collapse collapse" id="flightDetail{{schedule.id}}">
                                     <!-- Tabs START -->
                                     <ul class="nav nav-pills nav-justified nav-responsive bg-primary bg-opacity-10 rounded mt-4 mb-3 p-2"
                                         id="flightlist-tab" role="tablist">
                                         <!-- Tab item -->
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link active mb-0" id="flightlist-tab-1"
-                                                data-bs-toggle="pill" data-bs-target="#flightlist-tab1" type="button"
+                                            <!-- <button class="nav-link active mb-0"
+                                                id="schedule-{{schedule.id}}-flightlist-tab-1" data-bs-toggle="pill"
+                                                data-bs-target="#flightlist-tab1{{schedule.id}}" type="button"
                                                 role="tab" aria-controls="flightlist-tab1" aria-selected="true">Flight
-                                                Information</button>
+                                                Information</button> -->
+
+                                            <button class="nav-link active mb-0"
+                                                [id]="'schedule-' + schedule.id + '-flightlist-tab-1'"
+                                                data-bs-toggle="pill"
+                                                [attr.data-bs-target]="'#flightlist-tab1' + schedule.id" type="button"
+                                                role="tab" aria-controls="flightlist-tab1" aria-selected="true">
+                                                Flight Information
+                                            </button>
                                         </li>
                                         <!-- Tab item -->
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link mb-0" id="flightlist-tab-2" data-bs-toggle="pill"
-                                                data-bs-target="#flightlist-tab2" type="button" role="tab"
-                                                aria-controls="flightlist-tab2" aria-selected="false">Fare
-                                                Detail</button>
+                                            <button class="nav-link mb-0"
+                                                [id]="'schedule-' + schedule.id + '-flightlist-tab-2'"
+                                                data-bs-toggle="pill"
+                                                [attr.data-bs-target]="'#flightlist-tab2' + schedule.id" type="button"
+                                                role="tab" aria-controls="flightlist-tab2" aria-selected="true">
+                                                Fare Details
+                                            </button>
+                                            <!-- <button class="nav-link mb-0" id="schedule-{{schedule.id}}-flightlist-tab-2"
+                                                data-bs-toggle="pill" data-bs-target="#flightlist-tab2" type="button"
+                                                role="tab" aria-controls="flightlist-tab2" aria-selected="false">Fare
+                                                Detail</button> -->
                                         </li>
                                         <!-- Tab item -->
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link mb-0" id="flightlist-tab-3" data-bs-toggle="pill"
-                                                data-bs-target="#flightlist-tab3" type="button" role="tab"
-                                                aria-controls="flightlist-tab3" aria-selected="false">Baggage
+                                            <button class="nav-link mb-0"
+                                                [id]="'schedule-'+ schedule.id +'flightlist-tab-3'"
+                                                data-bs-toggle="pill"
+                                                [attr.data-bs-target]="'#flightlist-tab3'+ schedule.id" type="button"
+                                                role="tab" aria-controls="flightlist-tab3" aria-selected="false">Baggage
                                                 Rules</button>
                                         </li>
                                         <!-- Tab item -->
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link mb-0" id="flightlist-tab-4" data-bs-toggle="pill"
-                                                data-bs-target="#flightlist-tab4" type="button" role="tab"
-                                                aria-controls="flightlist-tab4" aria-selected="false">Cancellation
+                                            <button class="nav-link mb-0"
+                                                [id]="'schedule-'+schedule.id+'flightlist-tab-4'" data-bs-toggle="pill"
+                                                [attr.data-bs-target]="'#flightlist-tab4'+schedule.id" type="button"
+                                                role="tab" aria-controls="flightlist-tab4"
+                                                aria-selected="false">Cancellation
                                                 Rules</button>
                                         </li>
                                     </ul>
@@ -187,14 +214,15 @@
                                     <div class="tab-content mb-0" id="flightlist-tabContent">
 
                                         <!-- Content item START -->
-                                        <div class="tab-pane fade show active" id="flightlist-tab1" role="tabpanel"
-                                            aria-labelledby="flightlist-tab-1">
+                                        <div class="tab-pane fade show active" [id]="'flightlist-tab1'+schedule.id"
+                                            role="tabpanel" aria-labelledby="flightlist-tab-1">
                                             <div class="card border">
 
                                                 <!-- Card header -->
                                                 <div class="card-header d-flex align-items-center pb-0">
                                                     <img src="assets/images/element/12.svg" class="w-30px me-2" alt="">
-                                                    <h6 class="fw-normal mb-0">Wizixo Airline (SA - 1254)</h6>
+                                                    <h6 class="fw-normal mb-0">{{ schedule.train.name}}
+                                                        ({{schedule.train.code}})</h6>
                                                 </div>
 
                                                 <!-- Card body START -->
@@ -204,9 +232,10 @@
                                                         <!-- Airport detail -->
                                                         <div class="col-sm-4">
                                                             <!-- Title -->
-                                                            <h4>BOM</h4>
-                                                            <h6 class="mb-0">14:50</h6>
-                                                            <p class="mb-0">Chhatrapati Shivaji International Airport
+                                                            <h4>{{schedule.departure_station.name}}</h4>
+                                                            <h6 class="mb-0">
+                                                                {{getFormattedTime(schedule.departure_time)}}</h6>
+                                                            <p class="mb-0">{{schedule.arrival_station.name}}
                                                             </p>
                                                         </div>
 
@@ -283,7 +312,7 @@
                                         <!-- Content item END -->
 
                                         <!-- Content item START -->
-                                        <div class="tab-pane fade" id="flightlist-tab2" role="tabpanel"
+                                        <div class="tab-pane fade" id="flightlist-tab2{{schedule.id}}" role="tabpanel"
                                             aria-labelledby="flightlist-tab-2">
                                             <div class="card card-body">
                                                 <!-- Table START -->
@@ -319,7 +348,7 @@
                                         <!-- Content item END -->
 
                                         <!-- Content item START -->
-                                        <div class="tab-pane fade" id="flightlist-tab3" role="tabpanel"
+                                        <div class="tab-pane fade" [id]="'flightlist-tab3'+schedule.id" role="tabpanel"
                                             aria-labelledby="flightlist-tab-3">
                                             <div class="card border">
                                                 <!-- Card header -->
@@ -363,7 +392,7 @@
                                         <!-- Content item END -->
 
                                         <!-- Content item START -->
-                                        <div class="tab-pane fade" id="flightlist-tab4" role="tabpanel"
+                                        <div class="tab-pane fade" id="flightlist-tab4{{schedule.id}}" role="tabpanel"
                                             aria-labelledby="flightlist-tab-4">
                                             <div class="card border">
                                                 <!-- Card header -->
@@ -414,24 +443,20 @@
                             </div>
                         </div>
                         <!-- Ticket item END -->
-
-
-
                         <!-- Pagination START -->
-                        <nav class="d-flex justify-content-center" aria-label="navigation">
+                        <!-- Pagination -->
+                        <nav *ngIf="pagination && pagination.links" aria-label="Page navigation">
                             <ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                                <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i
-                                            class="fa-solid fa-angle-left"></i></a></li>
-                                <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item mb-0"><a class="page-link" href="#">..</a></li>
-                                <li class="page-item mb-0"><a class="page-link" href="#">6</a></li>
-                                <li class="page-item mb-0"><a class="page-link" href="#"><i
-                                            class="fa-solid fa-angle-right"></i></a></li>
+
+                                <li class="page-item" *ngFor="let link of pagination.links"
+                                    [class.active]="link.active">
+                                    <a class="page-link cursor-pointer" (click)="handlePageClick(link.url)"
+                                        [innerHTML]="link.label"></a>
+                                </li>
+
                             </ul>
                         </nav>
                         <!-- Pagination END -->
-
                     </div>
                 </div>
                 <!-- Main content END -->
